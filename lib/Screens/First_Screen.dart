@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:sw2project/Screens/Home_Screen.dart';
 
 class FirstScreen extends StatelessWidget {
 
@@ -15,7 +16,9 @@ class FirstScreen extends StatelessWidget {
             Image.asset('lib/image/GTW.png'),
             ElevatedButton.icon(
               icon: Icon(Icons.play_arrow),
-              onPressed: (){},
+              onPressed: (){
+              Navigator.push(context,MaterialPageRoute(builder:(context) => HomeScreen(),),);
+              },
               label: Text('Play'),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(255, 72, 155, 151),

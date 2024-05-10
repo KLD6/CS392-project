@@ -1,7 +1,17 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
+import 'package:sw2project/Screens/Catagory.dart';
+import 'package:sw2project/Screens/First_Screen.dart';
+import 'package:sw2project/Screens/Setting.dart';
+import 'package:sw2project/User/User.dart';
+
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 class HomeScreen extends StatelessWidget {
+ TextEditingController nameController = TextEditingController();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +25,8 @@ class HomeScreen extends StatelessWidget {
             size: 20,
             color: Color.fromARGB(255, 59, 128, 124),
           ),
-          onPressed: () {},
+          onPressed: ( ) 
+          {              Navigator.push(context,MaterialPageRoute(builder:(context) => FirstScreen(),),);},
         ),
         actions: [
           Image.asset('lib/image/GTW.png'),
@@ -28,7 +39,9 @@ class HomeScreen extends StatelessWidget {
               size: 20,
               color: Color.fromARGB(255, 59, 128, 124),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,MaterialPageRoute(builder:(context) => Settings(),),);
+            },
           ),
         ],
       ),
@@ -41,32 +54,57 @@ class HomeScreen extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 230,
-              ),
-              TextField(
-                  decoration: InputDecoration(
-                    hintText: "Enter your name",
-                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(40)),
-                    filled: true,
-                    fillColor: Color.fromARGB(255, 248, 248, 219),
-                                        
-                    
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+               
+                TextField(
+                     controller: nameController,
+                    decoration: InputDecoration(
+                      hintText: "Enter your name",
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(40)),
+                      filled: true,
+                      fillColor: Color.fromARGB(255, 248, 248, 219),
+                      
+                      
+                                          
+                      
+                    ),
+                   
+
+                    ),
+                ElevatedButton.icon(
+                  icon: Icon(Icons.send),
+                  onPressed: () {
+                  String enteredName = nameController.text.trim();
+                  if (enteredName.isNotEmpty) {
+                    User.userName = enteredName;
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => Catagory()),
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text('Please enter your name.'),
+                    ));
+                  }
+                    //Navigator.push(context,MaterialPageRoute(builder:(context) => Catagory(),),);
+                  },
+                  label: Text('submit'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color.fromARGB(255, 59, 128, 124),
+                    foregroundColor: Color.fromARGB(255, 248, 248, 219),
                   ),
-                  ),
-              ElevatedButton.icon(
-                icon: Icon(Icons.send),
-                onPressed: () {},
-                label: Text('submit'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Color.fromARGB(255, 59, 128, 124),
-                  foregroundColor: Color.fromARGB(255, 248, 248, 219),
                 ),
-              ),
-            ],
+                
+              ],
+            ),
           )),
     );
   }
+   String getEntredName(){
+String EnterdName = nameController.text;
+
+return EnterdName;
+ }
 }
