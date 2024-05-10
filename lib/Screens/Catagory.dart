@@ -7,6 +7,7 @@ import 'package:sw2project/Screens/FoodLevels.dart';
 import 'package:sw2project/Screens/Home_Screen.dart';
 import 'package:sw2project/Screens/Setting.dart';
 
+// ignore: must_be_immutable
 class Catagory extends HomeScreen {
   //const Catagory({super.key});
 

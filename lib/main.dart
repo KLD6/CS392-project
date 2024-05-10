@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:sw2project/Screens/Catagory.dart';
+//import 'package:sw2project/Screens/Catagory.dart';
 import 'package:sw2project/Screens/First_Screen.dart';
-import 'package:sw2project/Screens/FoodLevels.dart';
+//import 'package:sw2project/Screens/FoodLevels.dart';
 
 //import 'package:sw2project/Screens/First_Screen.dart';
 //import 'package:sw2project/Screens/Home_Screen.dart';

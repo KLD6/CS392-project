@@ -19,7 +19,7 @@ class ComputerLevels extends StatelessWidget {
               size: 20,
               color: Color.fromARGB(255, 59, 128, 124),
             ),
-            onPressed: () {              Navigator.push(context,MaterialPageRoute(builder:(context) => Settings(),),);
+            onPressed: () {  Navigator.push(context,MaterialPageRoute(builder:(context) => Settings(),),);
 },
           ),
         actions: [

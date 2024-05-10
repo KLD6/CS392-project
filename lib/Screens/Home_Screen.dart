@@ -7,9 +7,11 @@ import 'package:sw2project/Screens/Setting.dart';
 import 'package:sw2project/User/User.dart';
 
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
+// ignore: must_be_immutable
 class HomeScreen extends StatelessWidget {
  TextEditingController nameController = TextEditingController();
+
+  HomeScreen({super.key});
 
 
   @override
