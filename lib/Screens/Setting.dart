@@ -6,9 +6,17 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:sw2project/Screens/Catagory.dart';
 //import 'package:sw2project/Screens/Home_Screen.dart';
 import 'package:sw2project/User/User.dart';
-class Settings extends StatelessWidget {
+class Settings extends StatefulWidget {
   const Settings({super.key});
 
+  @override
+  State<Settings> createState() => _SettingsState();
+}
+
+class _SettingsState extends State<Settings> {
+  bool Mstate = true;
+  Color Mcolor = Color.fromARGB(255, 139, 141, 141);
+  
   @override
   Widget build(BuildContext context) {
     final player = AudioPlayer();
@@ -35,14 +43,30 @@ class Settings extends StatelessWidget {
                 ),),
                 SizedBox(width: 20,),
                 IconButton(
-                icon: Icon(Icons.volume_up),
+                icon: Icon((Mstate)? Icons.volume_up : Icons.volume_off),
                 onPressed: (){
                   playAudio("audio/gameM.mp3");
+                  if(Mstate){
+                    setState(() {
+                     Mcolor = Color.fromARGB(255, 139, 141, 141);
+                    Mstate = false;
+                    
+                    });
+                    
+                  }else{
+                    setState(() {
+                   Mcolor = Color.fromARGB(255, 72, 155, 151);
+                   Mstate = true;
+
+                    });
+                    
+                  }
+                 
                 },
                 
                 style: 
                 IconButton.styleFrom(
-                  backgroundColor: Color.fromARGB(255, 138, 138, 138),
+                  backgroundColor:Mcolor,
                   //shadowColor: Colors.black,
                   foregroundColor: Color.fromARGB(255, 248, 248, 219),
                   fixedSize: Size(50, 40),
@@ -50,11 +74,7 @@ class Settings extends StatelessWidget {
   
                 ),
                ),
-               ElevatedButton(onPressed: () {
-                playAudio("https://www.youtube.com/watch?v=yA41iunMG6A");
-                
-               }, 
-               child: Text("Play"),)
+               
               ],
             ),
             Row(
