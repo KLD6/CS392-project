@@ -104,9 +104,5 @@ class HomeScreen extends StatelessWidget {
           )),
     );
   }
-   String getEntredName(){
-String EnterdName = nameController.text;
 
-return EnterdName;
- }
 }
